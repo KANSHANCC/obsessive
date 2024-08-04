@@ -4,14 +4,34 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<link rel="preconnect" href="https://www.baidu.com/" crossorigin>
+<link rel="dns-prefetch" href="https://www.baidu.com/">
+<script src="./resource/1.js"></script>
+<script defer src="./resource/2.js"></script>
+<script src="./resource/3.js"></script>
+<link rel="stylesheet" href="./resource/index.css">
+<style>
+    .text-color{
+        color: aqua !important;
+    }
+    .css-style{
+        color: yellow;
+    }
+    #title{
+        color: blueviolet;
+    }
+</style>
 <body>
-    <h1></h1>
+    <h1 class="css-style text-color" id="title" >css</h1>
     <h3>强缓存 Expires/Cache-control</h3>
-    <img width="100" src="resource/images/1.jpg" alt="1.jpg">
+    <img width="100" src="resource/images/1.jpg" style="opacity: 1; will-change: opacity;" alt="1.jpg">
     <h3>协商缓存 ETag/if-none-match</h3>
     <img width="100" src="resource/images/2.jpg" alt="2.jpg">
     <h3>协商缓存 Last-modified/if-modified-since</h3>
     <img width="100" src="resource/images/3.jpg" alt="3.jpg">
+
+
+    <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
 </body>
 <script>
 </script>

@@ -2,15 +2,21 @@ const http = require('http')
 const fs = require('fs')
 const url = require('url')
 const crypto = require('crypto')
+
 http.createServer((req, res) => {
     let u = url.parse(req.url)
     if (u.pathname === '/') {
         let data = fs.readFileSync('./index.html')
         res.end(data)
+    } else if (u.pathname.includes('.js') || u.pathname.includes('.css')) {
+        console.log(u.pathname)
+        let data = fs.readFileSync(`.${u.pathname}`)
+        res.end(data)
     } else if (u.pathname === '/resource/images/1.jpg') {
         let data = fs.readFileSync('./resource/images/1.jpg')
         res.setHeader('Expires', new Date('2024-06-27').toUTCString())
         res.setHeader('Cache-Control', 'max-age=5')
+        res.setHeader('Set-Cookie', ['user=cc'])
         res.end(data)
     } else if (u.pathname === '/resource/images/2.jpg') {
         let data = fs.readFileSync('./resource/images/2.jpg')
